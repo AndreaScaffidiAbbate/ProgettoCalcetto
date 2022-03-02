@@ -1,56 +1,92 @@
 <%@ include file="header.jsp"%>
-<%@ include file="navbar.jsp"%>
+<%@ include file="navbar_login.jsp"%>
 
-<br><br><br>
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-
-
-	<div class="container">
-  <h2>Sporting club Roma</h2>  
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/06/dimensioni-campo-da-calcetto.jpg?w=744&h=418&a=c" alt="Campo1" style="width: 1200px; height: 500px;">
-      </div>
-
-      <div class="item">
-        <img src="http://www.adamsport.it/wp-content/uploads/2015/04/calcio-o-calcetto-a-5-cinque.jpg" alt="Campo2" style="width: 1200px; height: 500px;">
-      </div>
-    
-      <div class="item">
-        <img src="https://www.calcioefinanza.it/wp-content/uploads/2020/05/campo-di-calcio-societ%C3%A0-sportiva-dilettantistica.jpg" alt="Campo3" style="width: 1200px; height: 500px;">
-      </div>
-      
-      <div class="item">
-        <img src="https://bim.acca.it/wp-content/uploads/2019/09/progetto-di-un-campo-da-calcetto_rendering01.jpg" alt="Campo4" style="width: 1200px; height: 500px;">
-      </div>
+	
+  <link href="stylesheethome.css" rel="stylesheet" id="bootstrap-css">
+  
+  <br> <br> <br> <br>
+  
+  <h1>Sporting Club Roma</h1>
+  
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="5000" style="border-color: black;border-width: 1.5px">
+      <img src="https://wips.plug.it/cips/paginegialle.it/magazine/cms/2018/06/dimensioni-campo-da-calcetto.jpg?w=744&h=418&a=c." class="mx-auto d-block" alt="Campo1"  style="width: 1200px; height: 500px;">
     </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+    <div class="carousel-item" data-bs-interval="5000">
+      <img src="http://www.adamsport.it/wp-content/uploads/2015/04/calcio-o-calcetto-a-5-cinque.jpg" alt="Campo2" class="mx-auto d-block" alt="Campo2" style="width: 1200px; height: 500px;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://www.calcioefinanza.it/wp-content/uploads/2020/05/campo-di-calcio-societ%C3%A0-sportiva-dilettantistica.jpg" class="mx-auto d-block" alt="Campo3" style="width: 1200px; height: 500px;">
+    </div>
+    <div class="carousel-item">
+      <img src="https://bim.acca.it/wp-content/uploads/2019/09/progetto-di-un-campo-da-calcetto_rendering01.jpg" class="mx-auto d-block" alt="Campo4" style="width: 1200px; height: 500px;">
+    </div>
   </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 
+<br>
 
 
+<div class="row">
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <div class="overlay">
+    <div class="text">Compra i nostri palloni</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2021/netowkr/FORNITURA%20SPORTIVA.jpg" alt="forniture" class="image"  >
+  <div class="overlay">
+    <div class="text">Forniture sportive</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <div class="overlay">
+    <div class="text">Compra i nostri palloni</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <div class="overlay">
+    <div class="text">Compra i nostri palloni</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <div class="overlay">
+    <div class="text">Compra i nostri palloni</div>
+  </div>
+</div>
+  </div>
+  <div class="column">
+    <div class="container" style="width: 300px; height: 350px;">
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <div class="overlay">
+    <div class="text">Compra i nostri palloni</div>
+  </div>
+</div>
+  </div>
+  
+</div>
 
+<br><br><br><br>
 <%@ include file="footer.jsp"%>
