@@ -20,8 +20,19 @@
       <input type="email" id="email" class="fadeIn second" name="email" placeholder="email">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
+      
+  <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" id="check" name="check"/>
+  <label class="form-check-label" for="flexCheckDefault">Spunta per accettare i Cookie.</label>
+</div>
+        <%if (request.getAttribute("emailnontrovata") != null) {%>
+				<div class="alert alert-danger" role="alert"
+					style="text-align: center;">Email e/o Password non corretti.
+					</div>
+				<%}%>
+
     </form>
 
-    <!-- Remind Passowrd -->
+
   </div>
 </div>

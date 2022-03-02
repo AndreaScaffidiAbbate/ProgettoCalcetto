@@ -49,7 +49,6 @@ public class GestioneRegistrazione extends HttpServlet {
 
 		if (!nome.equals("") && !cognome.equals("") && !nomesquadra.equals("") && !email.equals("")
 				&& !password.equals("") && !colore.equals("")) {
-			// if (controlloEmail(email) == null) {
 			Squadra utente = new Squadra();
 			utente.setNomeUtente(nome);
 			utente.setCognomeUtente(cognome);
@@ -60,6 +59,7 @@ public class GestioneRegistrazione extends HttpServlet {
 			utente.setRuoloUtente(2);
 			try {
 				addUtente(utente);
+				request.getRequestDispatcher("crea_squadra.jsp").forward(request, response);
 			} catch (RollbackException e) {
 				request.setAttribute("emailtrovata", email);
 				request.setAttribute("squadratrovata", nomesquadra);

@@ -28,122 +28,138 @@
 						<div class="col-md-3">
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="Nome *" value="" name="nome1"  required/>
+									placeholder="Nome *" value="" name="nome1"  required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="Nome *" value="" name="nome2" required/>
+									placeholder="Nome *" value="" name="nome2" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="Nome *" value="" name="nome3" required/>
+									placeholder="Nome *" value="" name="nome3" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="Nome *" value="" name="nome4" required/>
+									placeholder="Nome *" value="" name="nome4" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="Nome *" value="" name="nome5" required/>
+									placeholder="Nome *" value="" name="nome5" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 							
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="cognome *" value="" name="cognome1" required/>
+									placeholder="cognome *" value="" name="cognome1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="cognome *" value="" name="cognome2" required/>
+									placeholder="cognome *" value="" name="cognome2" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="cognome *" value="" name="cognome3" required/>
+									placeholder="cognome *" value="" name="cognome3" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="cognome *" value="" name="cognome4" required/>
+									placeholder="cognome *" value="" name="cognome4" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="text" class="form-control"
-									placeholder="cognome *" value="" name="cognome5" required/>
+									placeholder="cognome *" value="" name="cognome5" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 
 							<button type="submit" class="btnRegister"> Registrati </button>
 						</div>
 						<div class="col-md-3">
 							<div class="form-group">
-								<select  class="form-select show-tick" name="ruolo1"  required>
+								<select  class="form-select show-tick" name="ruolo1"  required style="border-color: black;border-width: 1.5px">
 								<option value="" selected disabled>Scegli il ruolo</option>
-								<option value="Pivot">Pivot</option>
-								<option value="Portiere">Portiere</option>
-								<option value="Laterale 1">Laterale 1</option>
-								<option value="Laterale 2">Laterale 2</option>
-								<option value="Centrale">Centrale</option>
+								<option value="Pivot" style="border-color: black;border-width: 1.5px">Pivot</option>
+								<option value="Portiere" style="border-color: black;border-width: 1.5px">Portiere</option>
+								<option value="Laterale 1" style="border-color: black;border-width: 1.5px">Laterale 1</option>
+								<option value="Laterale 2" style="border-color: black;border-width: 1.5px">Laterale 2</option>
+								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="ruolo2"  required>
+								<select  class="form-select show-tick" name="ruolo2"  required style="border-color: black;border-width: 1.5px">
 								<option value="" selected disabled>Scegli il ruolo</option>
-								<option value="Pivot">Pivot</option>
-								<option value="Portiere">Portiere</option>
-								<option value="Laterale 1">Laterale 1</option>
-								<option value="Laterale 2">Laterale 2</option>
-								<option value="Centrale">Centrale</option>
+								<option value="Pivot" style="border-color: black;border-width: 1.5px">Pivot</option>
+								<option value="Portiere" style="border-color: black;border-width: 1.5px">Portiere</option>
+								<option value="Laterale 1" style="border-color: black;border-width: 1.5px">Laterale 1</option>
+								<option value="Laterale 2" style="border-color: black;border-width: 1.5px">Laterale 2</option>
+								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="ruolo3"  required>
+								<select  class="form-select show-tick" name="ruolo3"  required style="border-color: black;border-width: 1.5px">
 								<option value="" selected disabled>Scegli il ruolo</option>
-								<option value="Pivot">Pivot</option>
-								<option value="Portiere">Portiere</option>
-								<option value="Laterale 1">Laterale 1</option>
-								<option value="Laterale 2">Laterale 2</option>
-								<option value="Centrale">Centrale</option>
+								<option value="Pivot" style="border-color: black;border-width: 1.5px">Pivot</option>
+								<option value="Portiere" style="border-color: black;border-width: 1.5px">Portiere</option>
+								<option value="Laterale 1" style="border-color: black;border-width: 1.5px">Laterale 1</option>
+								<option value="Laterale 2" style="border-color: black;border-width: 1.5px">Laterale 2</option>
+								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="ruolo4"  required>
+								<select  class="form-select show-tick" name="ruolo4"  required style="border-color: black;border-width: 1.5px">
 								<option value="" selected disabled>Scegli il ruolo</option>
-								<option value="Pivot">Pivot</option>
-								<option value="Portiere">Portiere</option>
-								<option value="Laterale 1">Laterale 1</option>
-								<option value="Laterale 2">Laterale 2</option>
-								<option value="Centrale">Centrale</option>
+								<option value="Pivot" style="border-color: black;border-width: 1.5px">Pivot</option>
+								<option value="Portiere" style="border-color: black;border-width: 1.5px">Portiere</option>
+								<option value="Laterale 1" style="border-color: black;border-width: 1.5px">Laterale 1</option>
+								<option value="Laterale 2" style="border-color: black;border-width: 1.5px">Laterale 2</option>
+								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="ruolo5" required>
+								<select  class="form-select show-tick" name="ruolo5" required style="border-color: black;border-width: 1.5px">
 								<option value="" selected disabled>Scegli il ruolo</option>
-								<option value="Pivot">Pivot</option>
-								<option value="Portiere">Portiere</option>
-								<option value="Laterale 1">Laterale 1</option>
-								<option value="Laterale 2">Laterale 2</option>
-								<option value="Centrale">Centrale</option>
+								<option value="Pivot" style="border-color: black;border-width: 1.5px">Pivot</option>
+								<option value="Portiere" style="border-color: black;border-width: 1.5px">Portiere</option>
+								<option value="Laterale 1" style="border-color: black;border-width: 1.5px">Laterale 1</option>
+								<option value="Laterale 2" style="border-color: black;border-width: 1.5px">Laterale 2</option>
+								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
 						</div>
 						<div class="col-md-2">
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value="" name="n_maglia1" required/>
+									placeholder="N maglia *" value="" name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required/>
+									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required/>
+									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required/>
+									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
+							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required/>
+									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 						</div>
 					</div>
