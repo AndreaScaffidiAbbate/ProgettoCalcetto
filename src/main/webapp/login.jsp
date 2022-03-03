@@ -18,7 +18,7 @@
     </div>
 
     <!-- Login Form -->
-    <form action="dispatcher_login?action=login"method="POST">
+    <form action="dispatcher_login?action=login3"method="POST">
       <input type="email" id="email" class="fadeIn second" name="email" placeholder="email">
       <input type="password" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">

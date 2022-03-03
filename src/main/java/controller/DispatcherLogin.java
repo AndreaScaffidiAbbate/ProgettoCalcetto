@@ -29,10 +29,13 @@ public class DispatcherLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("action") != null && request.getParameter("action").equals("login")) {
 			request.getServletContext().getRequestDispatcher("/GestioneLogin").forward(request, response);
-			
+		}
+		else if(request.getParameter("action") != null && request.getParameter("action").equals("login3")) {
+			request.getServletContext().getRequestDispatcher("/GestioneLogin").forward(request, response);
 		}
 		
-		}
 	}
+	
+}	
 
 

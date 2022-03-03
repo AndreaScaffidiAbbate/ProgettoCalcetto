@@ -3,6 +3,7 @@ package model;
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 
 /**
@@ -217,4 +218,32 @@ public class Squadra implements Serializable {
 		return partitas2;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Squadra other = (Squadra) obj;
+		return Objects.equals(cognomeUtente, other.cognomeUtente) && Objects.equals(coloreSquadra, other.coloreSquadra)
+				&& Objects.equals(emailUtente, other.emailUtente) && Objects.equals(giocatores, other.giocatores)
+				&& Objects.equals(nomeSquadra, other.nomeSquadra) && Objects.equals(nomeUtente, other.nomeUtente)
+				&& pareggioSquadra == other.pareggioSquadra && Objects.equals(partitas1, other.partitas1)
+				&& Objects.equals(partitas2, other.partitas2) && Objects.equals(passwordUtente, other.passwordUtente)
+				&& ruoloUtente == other.ruoloUtente && sconfittaSquadra == other.sconfittaSquadra
+				&& vittoriaSquadra == other.vittoriaSquadra;
+	}
+
+	@Override
+	public String toString() {
+		return "Squadra [idSquadra=" + idSquadra + ", cognomeUtente=" + cognomeUtente + ", coloreSquadra="
+				+ coloreSquadra + ", emailUtente=" + emailUtente + ", nomeSquadra=" + nomeSquadra + ", nomeUtente="
+				+ nomeUtente + ", pareggioSquadra=" + pareggioSquadra + ", passwordUtente=" + passwordUtente
+				+ ", ruoloUtente=" + ruoloUtente + ", sconfittaSquadra=" + sconfittaSquadra + ", vittoriaSquadra="
+				+ vittoriaSquadra + ", giocatores=" + giocatores + ", partitas1=" + partitas1 + ", partitas2="
+				+ partitas2 + "]";
+	}
+	
 }

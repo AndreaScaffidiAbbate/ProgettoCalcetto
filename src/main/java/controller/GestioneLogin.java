@@ -1,6 +1,5 @@
 package controller;
 
-
 import java.io.IOException;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,7 +19,7 @@ import model.Squadra;
 public class GestioneLogin extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private EntityManagerFactory emf;
-	private EntityManager em;   
+	private EntityManager em;
 	private Squadra utente;
 
 	public GestioneLogin() {
@@ -35,19 +34,70 @@ public class GestioneLogin extends HttpServlet {
 		this.utente = new Squadra();
 	}
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		String email = request.getParameter("email").trim();
 		String password = request.getParameter("password").trim();
 		String check = request.getParameter("check");
+
 		if (!email.equals("") && !password.equals("")) {
+			if (getUtenteByEmail(email) == 2) {
+
+				try {
+					if (utenteCheck(email, password) != null) {
+
+						if (check != null) {
+							Cookie ck_email = new Cookie("email", email);
+							Cookie ck_password = new Cookie("password", password);
+							ck_email.setMaxAge(20);
+							ck_password.setMaxAge(20);
+							response.addCookie(ck_email);
+							response.addCookie(ck_password);
+						}
+					}
+				} catch (NoResultException e) {
+					request.setAttribute("emailnontrovata", email);
+					request.setAttribute("passwordnontrovata", password);
+					request.getRequestDispatcher("login.jsp").forward(request, response);
+				}
+			
+			HttpSession session = request.getSession();
+			session.setAttribute("userLogin", this.utente);
+			response.sendRedirect("calendar_home.jsp");
+		}
+		else if(getUtenteByEmail(email) == 1) {
 			try {
-			if(utenteCheck(email, password) != null) {
-				
-				if(check != null) {
+				if (utenteCheck(email, password) != null) {
+
+					if (check != null) {
+						Cookie ck_email = new Cookie("email", email);
+						Cookie ck_password = new Cookie("password", password);
+						ck_email.setMaxAge(20);
+						ck_password.setMaxAge(20);
+						response.addCookie(ck_email);
+						response.addCookie(ck_password);
+					}
+				}
+			} catch (NoResultException e) {
+				request.setAttribute("emailnontrovata", email);
+				request.setAttribute("passwordnontrovata", password);
+				request.getRequestDispatcher("login.jsp").forward(request, response);
+			}
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("userLoginStaff", this.utente);
+		response.sendRedirect("home_admin.jsp");
+	}
+		
+		else {
+		try {
+			if (utenteCheck(email, password) != null) {
+
+				if (check != null) {
 					Cookie ck_email = new Cookie("email", email);
 					Cookie ck_password = new Cookie("password", password);
 					ck_email.setMaxAge(20);
@@ -56,25 +106,30 @@ public class GestioneLogin extends HttpServlet {
 					response.addCookie(ck_password);
 				}
 			}
-			}catch(NoResultException e) {
-				request.setAttribute("emailnontrovata", email);
-				request.setAttribute("passwordnontrovata", password);
-				request.getRequestDispatcher("login.jsp").forward(request, response);
-			}
-			}
-			HttpSession session =  request.getSession();
-			session.setAttribute("userLogin", this.utente);
-		
+		} catch (NoResultException e) {
+			request.setAttribute("emailnontrovata", email);
+			request.setAttribute("passwordnontrovata", password);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 
-		response.sendRedirect("calendar_home.jsp");
+		}
+
+		HttpSession session = request.getSession();
+		session.setAttribute("userLoginAdmin", this.utente);
+		request.getRequestDispatcher("home_admin.jsp").forward(request, response);
+	}
+		}
 	}
 
 
-	private Squadra utenteCheck(String email, String password) {	
-	return em.createQuery("SELECT u FROM Squadra u WHERE u.emailUtente='" +email + "' AND u.passwordUtente='" +password +"'", Squadra.class).getSingleResult();
-	}
-		
-
+private Squadra utenteCheck(String email, String password) {
+	return em.createQuery(
+			"SELECT u FROM Squadra u WHERE u.emailUtente='" + email + "' AND u.passwordUtente='" + password + "'",
+			Squadra.class).getSingleResult();
 }
 
+private int getUtenteByEmail(String email) {
+	return (int) em.createQuery("SELECT u.ruoloUtente FROM Squadra u WHERE u.emailUtente='" + email + "'")
+			.getSingleResult();
+}
 
+}
