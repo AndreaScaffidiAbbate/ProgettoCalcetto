@@ -313,7 +313,7 @@ input[type=email]:placeholder {
   width: 100%;
   opacity: 0;
   transition: .5s ease;
-  background-color: #008CBA;
+  background-color: darkgrey;
 }
 
 .container:hover .overlay {
@@ -351,4 +351,9 @@ input[type=email]:placeholder {
   clear: both;
 }
 
-h1 { color: #fff; font-family: 'Righteous', cursive; font-size: 65px; font-weight: normal; line-height: 60px; margin: 10px 0 20px; text-transform: uppercase; text-shadow: 2px 2px 0 #000; margin: 10px 0 24px; text-align: center; }
+
+.titolo {font-size: 100px; color: black; font-family: 'Anton', sans-serif; text-align: center;}
+
+.titolo2 {font-size: 50px; color: black; font-family: 'Anton', sans-serif; text-align: center;}
+
+.titolo3 {font-size: 30px; color: black; font-family: 'Anton', sans-serif; text-align: center;}

@@ -1,5 +1,5 @@
 <%@ include file="header.jsp"%>
-<%@ include file="navbar.jsp"%>
+<%@ include file="navbar_login.jsp"%>
 
 <br>
 <br>

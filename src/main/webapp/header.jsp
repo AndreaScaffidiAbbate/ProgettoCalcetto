@@ -7,8 +7,8 @@
 <title>Sporting club Roma</title>
 <link
 	rel="icon"
-	href="https://lh3.googleusercontent.com/keC_o0WVeJj-40wVXl9rM5I3zoaujgmwj_dwVBQVQCqWjwhc6PRqSMaTw_GzZ9g1Tai5Dfw=s85"
-	type="image/x-icon">
+	href="https://i.ibb.co/D4sz9CZ/pngtree-kick-ball-logo-icon-vector-png-image-1127541.png" 
+	type="image/x-icon" sizes="18x18">
 
 <style>
 body {
@@ -17,6 +17,8 @@ body {
 	background-attachment: fixed;
 	background-size: 100% 100%;
 }
+
+
 </style>
 
 
@@ -28,6 +30,10 @@ body {
 	rel="stylesheet"
 	integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
 	crossorigin="anonymous">
+	
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 
 
 </head>

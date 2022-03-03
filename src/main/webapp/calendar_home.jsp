@@ -21,12 +21,12 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="colore" required>
+								<select  class="form-select show-tick" name="team" required>
 								<option value="" selected>Scegli il tuo team</option>
 								<option value="Bianco">Bianco</option>
 								</select>
 							</div><div class="form-group">
-								<select  class="form-select show-tick" name="colore" required>
+								<select  class="form-select show-tick" name="campo" required>
 								<option value="" selected>Scegli il campo</option>
 								<option value="Campo1">Campo 1</option>
 								<option value="Campo2">Campo 2</option>
@@ -92,4 +92,4 @@
   </div>
 </div>
 
-<%@ include file="footer.jsp"%>
+<%@ include file="footer_user.jsp"%>
