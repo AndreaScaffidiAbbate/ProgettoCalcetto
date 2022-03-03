@@ -20,7 +20,7 @@
       <img src="https://www.calcioefinanza.it/wp-content/uploads/2020/05/campo-di-calcio-societ%C3%A0-sportiva-dilettantistica.jpg" class="mx-auto d-block" alt="Campo3" style="width: 1200px; height: 500px;">
     </div>
     <div class="carousel-item">
-      <img src="https://bim.acca.it/wp-content/uploads/2019/09/progetto-di-un-campo-da-calcetto_rendering01.jpg" class="mx-auto d-block" alt="Campo4" style="width: 1200px; height: 500px;">
+      <img src="https://www.biancolavoro.it/wp-content/uploads/2013/09/campo-calcetto-1024x678.jpg" class="mx-auto d-block" alt="Campo4" style="width: 1200px; height: 500px;">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -39,7 +39,7 @@
 <div class="row">
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
   <div class="overlay">
     <div class="text">Compra i nostri palloni</div>
   </div>
@@ -47,7 +47,7 @@
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2021/netowkr/FORNITURA%20SPORTIVA.jpg" alt="forniture" class="image"  >
+  <img src="https://www.footballitalia.it/img/cms/2021/netowkr/FORNITURA%20SPORTIVA.jpg" alt="forniture" class="image"  style="height: 340px;">
   <div class="overlay">
     <div class="text">Forniture sportive</div>
   </div>
@@ -55,7 +55,7 @@
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
   <div class="overlay">
     <div class="text">Compra i nostri palloni</div>
   </div>
@@ -63,7 +63,7 @@
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
   <div class="overlay">
     <div class="text">Compra i nostri palloni</div>
   </div>
@@ -71,7 +71,7 @@
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
   <div class="overlay">
     <div class="text">Compra i nostri palloni</div>
   </div>
@@ -79,7 +79,7 @@
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
-  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" >
+  <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
   <div class="overlay">
     <div class="text">Compra i nostri palloni</div>
   </div>
