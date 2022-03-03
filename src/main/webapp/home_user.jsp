@@ -1,10 +1,10 @@
 <%@ include file="header.jsp"%>
-<%@ include file="navbar_login.jsp"%>
+<%@ include file="navbar.jsp"%>
 
 	
   <link href="stylesheethome.css" rel="stylesheet" id="bootstrap-css">
   
-  <br> <br> <br> <br>
+  <br> <br> <br> <br> 
   
   <h1 class="titolo">SPORTING CLUB ROMA</h1>
   
@@ -34,6 +34,8 @@
 </div>
 
 <br>
+
+
 
 <div class="d-flex justify-content-center">
    <div>
@@ -103,4 +105,4 @@ Che aspetti? Puoi trovarci in Via Sandro Sandri, 99, 00159 Roma.</h2>
 </div>
 
 <br><br><br><br>
-<%@ include file="footer.jsp"%>
+<%@ include file="footer_user.jsp"%>
