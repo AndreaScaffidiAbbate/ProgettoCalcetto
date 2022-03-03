@@ -4,7 +4,7 @@
 	
   <link href="stylesheethome.css" rel="stylesheet" id="bootstrap-css">
   
-  <br> <br> 
+  <br> <br> <br> <br> 
   
   <h1 class="titolo">SPORTING CLUB ROMA</h1>
   

@@ -1,5 +1,5 @@
 <link href="stylesheetnavbar.css" rel="stylesheet" id="bootstrap-css7">
-<nav class="navbar navbar-dark bg-dark navbar-expand-sm">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
 <div class="container-fluid">
   <a class="navbar-brand" href="home_user.jsp">
       <img class ="imgsize" src="https://i.ibb.co/D4sz9CZ/pngtree-kick-ball-logo-icon-vector-png-image-1127541.png" height="45" alt="" loading="lazy" />
