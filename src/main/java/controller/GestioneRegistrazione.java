@@ -1,12 +1,9 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.persistence.RollbackException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Squadra;
 
@@ -46,6 +44,8 @@ public class GestioneRegistrazione extends HttpServlet {
 		String email = request.getParameter("email").trim();
 		String password = request.getParameter("password").trim();
 		String colore = request.getParameter("colore").trim();
+		
+	
 
 		if (!nome.equals("") && !cognome.equals("") && !nomesquadra.equals("") && !email.equals("")
 				&& !password.equals("") && !colore.equals("")) {
@@ -59,6 +59,8 @@ public class GestioneRegistrazione extends HttpServlet {
 			utente.setRuoloUtente(2);
 			try {
 				addUtente(utente);
+				HttpSession sessionreg =  request.getSession();
+				sessionreg.setAttribute("idsquadra", getIdByUtente(email));
 				request.getRequestDispatcher("crea_squadra.jsp").forward(request, response);
 			} catch (RollbackException e) {
 				request.setAttribute("emailtrovata", email);
@@ -78,6 +80,10 @@ public class GestioneRegistrazione extends HttpServlet {
 		em.getTransaction().begin();
 		em.persist(utente);
 		em.getTransaction().commit();
+	}
+	
+	private int getIdByUtente(String email) {
+		return (int) em.createQuery("SELECT u.idSquadra FROM Squadra u WHERE u.emailUtente='" +email + "'").getSingleResult();
 	}
 
 }

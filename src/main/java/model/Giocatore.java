@@ -34,9 +34,23 @@ public class Giocatore implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="squadra_id")
 	private Squadra squadra;
-
+	
 	public Giocatore() {
 	}
+
+	
+	
+	public Giocatore(String cognomeGiocatore, String nomeGiocatore, int numeroGiocatore,
+			String ruoloGiocatore, Squadra squadra) {
+		super();
+		this.cognomeGiocatore = cognomeGiocatore;
+		this.nomeGiocatore = nomeGiocatore;
+		this.numeroGiocatore = numeroGiocatore;
+		this.ruoloGiocatore = ruoloGiocatore;
+		this.squadra = squadra;
+	}
+
+
 
 	public int getIdGiocatore() {
 		return this.idGiocatore;

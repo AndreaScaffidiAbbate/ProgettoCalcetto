@@ -19,7 +19,7 @@
 			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 				
 			</ul>
-			<form action="/dispatcher_registrazione" method = "POST">
+			<form action="dispatcher_squadra?action=registrazionesquadra" method = "POST">
 			<div class="tab-content" id="myTabContent">
 				<div class="" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
@@ -144,22 +144,22 @@
 							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
+									placeholder="N maglia *" value=""  name="n_maglia2" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
+									placeholder="N maglia *" value=""  name="n_maglia3" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
+									placeholder="N maglia *" value=""  name="n_maglia4" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 							<br>
 							<div class="form-group">
 								<input type="number" min="1" max="99" class="form-control"
-									placeholder="N maglia *" value=""  name="n_maglia1" required style="border-color: black;border-width: 1.5px"/>
+									placeholder="N maglia *" value=""  name="n_maglia5" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 						</div>
 					</div>

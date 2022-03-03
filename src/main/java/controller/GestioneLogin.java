@@ -2,13 +2,10 @@ package controller;
 
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.NoResultException;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -69,7 +66,7 @@ public class GestioneLogin extends HttpServlet {
 			session.setAttribute("userLogin", this.utente);
 		
 
-		response.sendRedirect("home_page_standard.jsp");
+		response.sendRedirect("calendar_home.jsp");
 	}
 
 
