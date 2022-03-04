@@ -1,3 +1,4 @@
+<%@page import="model.Squadra"%>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 
@@ -9,7 +10,7 @@
 <h1 class="titolo">Prenotati ora</h1>
 
 <br><br><br><br>
-
+<%Squadra utente = (Squadra) session.getAttribute("userLogin"); %>
 <div class="row row-cols-1 row-cols-md-5 g-4" style="margin-left: 300px; margin-right: 300px; padding-bottom: 50px;">
   <div class="col">
     <div class="card h-100 cards">
@@ -25,10 +26,9 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select  class="form-select show-tick" name="team" required>
-								<option value="" selected>Scegli il tuo team</option>
-								<option value="Bianco">Bianco</option>
-								</select>
+						
+								<input disabled value = "<%= utente.getNomeSquadra() %>" >
+								
 							</div><div class="form-group">
 								<select  class="form-select show-tick" name="campo" required>
 								<option value="" selected>Scegli il campo</option>

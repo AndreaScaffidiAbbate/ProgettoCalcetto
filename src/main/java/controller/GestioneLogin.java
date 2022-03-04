@@ -40,15 +40,23 @@ public class GestioneLogin extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String email = request.getParameter("email").trim();
 		String password = request.getParameter("password").trim();
 		String check = request.getParameter("check");
-
+		
+		try { 
+			this.utente = utenteCheck(email, password);
+		}catch(NoResultException e) {
+			request.setAttribute("emailnontrovata", email);
+			request.setAttribute("passwordnontrovata", password);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 		if (!email.equals("") && !password.equals("")) {
-			if (getUtenteByEmail(email) == 2) {
+			if (utente.getRuoloUtente() == 2) {
 
 				try {
-					if (utenteCheck(email, password) != null) {
+					if (utente != null) {
 
 						if (check != null) {
 							Cookie ck_email = new Cookie("email", email);
@@ -59,19 +67,20 @@ public class GestioneLogin extends HttpServlet {
 							response.addCookie(ck_password);
 						}
 					}
-				} catch (NoResultException e) {
+				} catch (NoResultException f) {
 					request.setAttribute("emailnontrovata", email);
 					request.setAttribute("passwordnontrovata", password);
 					request.getRequestDispatcher("login.jsp").forward(request, response);
 				}
 			
 			HttpSession session = request.getSession();
+			System.out.println();
 			session.setAttribute("userLogin", this.utente);
-			response.sendRedirect("calendar_home.jsp");
+			request.getRequestDispatcher("calendar_home.jsp").forward(request, response);
 		}
-		else if(getUtenteByEmail(email) == 1) {
+		else if(utente.getRuoloUtente() == 1) {
 			try {
-				if (utenteCheck(email, password) != null) {
+				if (utente != null) {
 
 					if (check != null) {
 						Cookie ck_email = new Cookie("email", email);
@@ -82,7 +91,7 @@ public class GestioneLogin extends HttpServlet {
 						response.addCookie(ck_password);
 					}
 				}
-			} catch (NoResultException e) {
+			} catch (NoResultException f) {
 				request.setAttribute("emailnontrovata", email);
 				request.setAttribute("passwordnontrovata", password);
 				request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -92,10 +101,11 @@ public class GestioneLogin extends HttpServlet {
 		session.setAttribute("userLoginStaff", this.utente);
 		response.sendRedirect("home_admin.jsp");
 	}
+			
 		
 		else {
 		try {
-			if (utenteCheck(email, password) != null) {
+			if (utente != null) {
 
 				if (check != null) {
 					Cookie ck_email = new Cookie("email", email);
@@ -106,7 +116,7 @@ public class GestioneLogin extends HttpServlet {
 					response.addCookie(ck_password);
 				}
 			}
-		} catch (NoResultException e) {
+		} catch (NoResultException f) {
 			request.setAttribute("emailnontrovata", email);
 			request.setAttribute("passwordnontrovata", password);
 			request.getRequestDispatcher("login.jsp").forward(request, response);
@@ -118,6 +128,7 @@ public class GestioneLogin extends HttpServlet {
 		request.getRequestDispatcher("home_admin.jsp").forward(request, response);
 	}
 		}
+	
 	}
 
 
@@ -127,9 +138,9 @@ private Squadra utenteCheck(String email, String password) {
 			Squadra.class).getSingleResult();
 }
 
-private int getUtenteByEmail(String email) {
-	return (int) em.createQuery("SELECT u.ruoloUtente FROM Squadra u WHERE u.emailUtente='" + email + "'")
-			.getSingleResult();
-}
+//private int getUtenteByEmail(String email) {
+//	return (int) em.createQuery("SELECT u.ruoloUtente FROM Squadra u WHERE u.emailUtente='" + email + "'")
+	//		.getSingleResult();
+//}
 
 }
