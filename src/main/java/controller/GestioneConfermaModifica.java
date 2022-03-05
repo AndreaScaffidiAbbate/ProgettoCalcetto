@@ -2,11 +2,12 @@ package controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -70,7 +71,8 @@ public class GestioneConfermaModifica extends HttpServlet {
 		int nmaglia5 = Integer.parseInt(request.getParameter("n_maglia5"));
 
 		HttpSession session = request.getSession();
-		int idsquadra = (int) session.getAttribute("idsquadra");
+		Squadra utente = (Squadra) session.getAttribute("utente");
+		int idsquadra = utente.getIdSquadra();
 		if (!nome1.equals("") && !nome2.equals("") && !nome3.equals("") && !nome4.equals("") && !nome5.equals("")) {
 
 			if (!cognome1.equals("") && !cognome2.equals("") && !cognome3.equals("") && !cognome4.equals("")
@@ -85,6 +87,11 @@ public class GestioneConfermaModifica extends HttpServlet {
 				if (ruoli.contains("Pivot") && ruoli.contains("Portiere") && ruoli.contains("Laterale 1")
 						&& ruoli.contains("Laterale 2") && ruoli.contains("Centrale")) {
 					Squadra squadra = getSquadraById(idsquadra);
+						List<Giocatore> listagiocatorivecchi = getAllGiocatoreById(utente);
+					    for (Giocatore giocatore : listagiocatorivecchi) {
+					    	removeGiocatore(giocatore);
+					    }
+					
 					Giocatore giocatore1 = new Giocatore(cognome1, nome1, nmaglia1, ruolo1, squadra);
 					aggiungiGiocatore(giocatore1);
 					Giocatore giocatore2 = new Giocatore(cognome2, nome2, nmaglia2, ruolo2, squadra);
@@ -95,18 +102,38 @@ public class GestioneConfermaModifica extends HttpServlet {
 					aggiungiGiocatore(giocatore4);
 					Giocatore giocatore5 = new Giocatore(cognome5, nome5, nmaglia5, ruolo5, squadra);
 					aggiungiGiocatore(giocatore5);
+					
+					List<Giocatore> listagiocatorinuovi = new ArrayList<Giocatore>();
+                    listagiocatorinuovi.add(giocatore1);
+                    listagiocatorinuovi.add(giocatore2);
+                    listagiocatorinuovi.add(giocatore3);
+                    listagiocatorinuovi.add(giocatore4);
+                    listagiocatorinuovi.add(giocatore5);
+                    session.setAttribute("listagiocatori", listagiocatorinuovi);
 				}
 
 			}
-			response.sendRedirect(".jsp");
+
+			response.sendRedirect("home_user.jsp");
 		}
 
 	}
 
 	private void aggiungiGiocatore(Giocatore giocatore) {
 		em.getTransaction().begin();
-		em.persist(giocatore);
+		em.merge(giocatore);
 		em.getTransaction().commit();
+	}
+	
+	private void removeGiocatore(Giocatore giocatore) {
+		em.getTransaction().begin();
+		em.remove(giocatore);
+		em.getTransaction().commit();
+	}
+	
+	
+	private List<Giocatore> getAllGiocatoreById(Squadra utente) {
+		return (List<Giocatore>) em.createQuery("SELECT u FROM Giocatore u WHERE u.squadra.idSquadra='" + utente.getIdSquadra() + "'").getResultList();
 	}
 
 	private Squadra getSquadraById(int id) {

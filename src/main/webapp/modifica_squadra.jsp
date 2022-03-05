@@ -2,7 +2,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.Squadra"%>
 <%@ include file="header.jsp"%>
-<%@ include file="navbar_login.jsp"%>
+<%@ include file="navbar.jsp"%>
 
 <link href="stylesheet3.css" rel="stylesheet" id="bootstrap-css3">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -11,7 +11,13 @@
 
 <br><br><br><br><br>
 <%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
-<%List<Giocatore> listagiocatori = utente.getGiocatores(); %>
+<%List<Giocatore> listagiocatori; %>
+<%if (session.getAttribute("listagiocatori") == null) {
+	 listagiocatori = utente.getGiocatores();
+}
+else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
+%>
+
 <div class="container register">
 	<div class="row">
 		<div class="col-md-3 register-left">
