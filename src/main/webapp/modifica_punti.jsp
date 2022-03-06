@@ -26,49 +26,87 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
 
 <div class="container register">
 	<div class="row">
-		<div class="col-md-3 register-left">
+		<div class="col-md-2 register-left">
 			<img src="https://i.ibb.co/xD4jCMS/palla.png" alt="" />
 			<h4>MODIFICA PUNTEGGI</h4>
 		</div>
-		<div class="col-md-9 register-right">
+		<div class="col-md-10 register-right">
 			<ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
 				
 			</ul>
-			<form action="GestioneConfermaModifica?action=modificasquadra" method = "POST">
+			<form action="GestionePunteggio?action=punti" method = "POST">
 			<div class="tab-content" id="myTabContent">
 				<div class="" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
 					<h3 class="register-heading">ADMIN POWA</h3>
 					<div class="row register-form">
-						<div class="col-md-3">
-							<div class="form-group">
-							 <% if(session.getAttribute("partite") != null) {
+					 <% if(session.getAttribute("partite") != null) {
 									partita = ((Partita)session.getAttribute("partite"));
 								 
 							%>
 						
-							<label><%= partita.getSquadra1().getNomeSquadra() %></label>
+							
 								
-							<% } %>
-
+							
+					
+					<div class="row register-form">
+					<div class="col-md-3">
+							<div class="form-group">
+							<br>
+							<h5><%= partita.getSquadra1().getNomeSquadra() %></h5>
+							</div>
+							<br>
+							<div class="form-group">
+							<h5><%= partita.getSquadra2().getNomeSquadra() %></h5>
+							</div>
+							</div>
+						<div class="col-md-2">
+							<div class="form-group">
+							<label>VITTORIA</label>
+							<input type="number" class="form-control"  >
+							</div>
+							<div class="form-group">
+							<label>VITTORIA</label>
 							<input type="number" class="form-control"  >
 							</div>
 						</div>
 						
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="form-group">
-								
+							<label>PAREGGIO</label>
+							<input type="number" class="form-control"  >
+							</div>	
+							<div class="form-group">
+							<label>PAREGGIO</label>
+							<input type="number" class="form-control"  >						
 							</div>
 
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-2">
 							<div class="form-group">
-								
+								<label>SCONFITTA</label>
+								<input type="number" class="form-control"  >
 							</div>
-
-							<button type="submit" class="btnRegister">Conferma</button>
-						</div>
-						
+							<div class="form-group">
+								<label>SCONFITTA</label>
+								<input type="number" class="form-control"  >
+							</div>
+							
+							
+								
+							<% } %>
+							
+							</div>
+							
+							<div class="col-md-3">
+							<div class="form-group">
+							<br><br>
+							<button type="submit" class="btnRegister ">Conferma</button>
+							</div>
+							</div>
+							
+							</div>
+							
 					</div>
 				</div>
 			</div>

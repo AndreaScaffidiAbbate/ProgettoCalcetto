@@ -74,8 +74,8 @@ public class GestioneLogin extends HttpServlet {
 						if (check != null) {
 							Cookie ck_email = new Cookie("email", email);
 							Cookie ck_password = new Cookie("password", password);
-							ck_email.setMaxAge(20);
-							ck_password.setMaxAge(20);
+							ck_email.setMaxAge(360);
+							ck_password.setMaxAge(360);
 							HttpSession session = request.getSession();
 							session.setAttribute("utente", utente);
 							response.addCookie(ck_email);
@@ -105,8 +105,8 @@ public class GestioneLogin extends HttpServlet {
 					if (check != null) {
 						Cookie ck_email = new Cookie("email", email);
 						Cookie ck_password = new Cookie("password", password);
-						ck_email.setMaxAge(20);
-						ck_password.setMaxAge(20);
+						ck_email.setMaxAge(360);
+						ck_password.setMaxAge(360);
 						HttpSession session = request.getSession();
 						session.setAttribute("utente", utente);
 						response.addCookie(ck_email);
@@ -124,9 +124,12 @@ public class GestioneLogin extends HttpServlet {
 		
 		if(trovaPartita(utente.getIdSquadra())!= null) {
 			session.setAttribute("partite", trovaPartitaAdmin());
+			request.getRequestDispatcher("home_admin.jsp").forward(request, response);
+			}else {
+				request.getRequestDispatcher("no_partite.jsp").forward(request, response);
 			}
 			//System.out.println(trovaPartita(utente.getIdSquadra()).toString());
-			request.getRequestDispatcher("home_admin.jsp").forward(request, response);
+			
 		//response.sendRedirect("home_admin.jsp");
 	}
 			
@@ -138,8 +141,8 @@ public class GestioneLogin extends HttpServlet {
 				if (check != null) {
 					Cookie ck_email = new Cookie("email", email);
 					Cookie ck_password = new Cookie("password", password);
-					ck_email.setMaxAge(20);
-					ck_password.setMaxAge(20);
+					ck_email.setMaxAge(360);
+					ck_password.setMaxAge(360);
 					HttpSession session = request.getSession();
 					session.setAttribute("utente", utente);
 					response.addCookie(ck_email);

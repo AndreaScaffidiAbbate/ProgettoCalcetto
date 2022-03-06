@@ -55,11 +55,11 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
 				<td><%= partita.getDataPartita() %></td>
 				<td><%= partita.getOrarioPartita() %></td>
 				<td><%= partita.getCampoPartita() %></td>
-				<td><%= partita.getSquadra1().getVittoriaSquadra() %></td>
-				<td><%= partita.getSquadra2().getVittoriaSquadra() %></td>
-				<td><%= partita.getSquadra1().getSconfittaSquadra() %></td>
-				<td><%= partita.getSquadra2().getSconfittaSquadra() %></td>
+				<td><%= partita.getSquadra1().getVittoriaSquadra() %></td>				
+				<td><%= partita.getSquadra1().getSconfittaSquadra() %></td>				
 				<td><%= partita.getSquadra1().getPareggioSquadra() %></td>
+				<td><%= partita.getSquadra2().getVittoriaSquadra() %></td>				
+				<td><%= partita.getSquadra2().getSconfittaSquadra() %></td>				
 				<td><%= partita.getSquadra2().getPareggioSquadra() %></td>
 				<td><input type="button" class="btn btn-danger btn-sm "
 					value="Modifica" onclick=" relocate3_home()">
