@@ -11,13 +11,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <br><br><br><br><br>
-<%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
-<%List<Giocatore> listagiocatori; %>
-<%if (session.getAttribute("listagiocatori") == null) {
-	 listagiocatori = utente.getGiocatores();
-}
-else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
-%>
+
 <% Partita partita; %>
 
 

@@ -5,13 +5,11 @@
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 
-<%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
+<%Squadra utente = (Squadra) session.getAttribute("utente");%>
 <%List<Giocatore> listagiocatori; %>
-<%if (session.getAttribute("listagiocatori") == null) {
-	 listagiocatori = utente.getGiocatores();
-}
-else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
-%>
+
+<%listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");%>
+
 <% List<Partita> listapartite; %>
 
 
