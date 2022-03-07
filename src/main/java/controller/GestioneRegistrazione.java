@@ -85,5 +85,7 @@ public class GestioneRegistrazione extends HttpServlet {
 	private int getIdByUtente(String email) {
 		return (int) em.createQuery("SELECT u.idSquadra FROM Squadra u WHERE u.emailUtente='" +email + "'").getSingleResult();
 	}
+	
+	
 
 }

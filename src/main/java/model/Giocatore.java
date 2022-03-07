@@ -100,4 +100,15 @@ public class Giocatore implements Serializable {
 		this.squadra = squadra;
 	}
 
+
+
+	@Override
+	public String toString() {
+		return "Giocatore [cognomeGiocatore=" + cognomeGiocatore + ", nomeGiocatore=" + nomeGiocatore
+				+ ", numeroGiocatore=" + numeroGiocatore + ", ruoloGiocatore=" + ruoloGiocatore + ", squadra=" + squadra
+				+ "]";
+	}
+	
+	
+	
 }

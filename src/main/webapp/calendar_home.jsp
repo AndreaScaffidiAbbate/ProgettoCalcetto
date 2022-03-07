@@ -17,7 +17,10 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Lunedì</h5>
          <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(1)">
+			
+		
+
 			
 			<script>
 			function relocate_home()
@@ -35,14 +38,9 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Martedì</h5>
         <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(2)">
 			
-			<script>
-			function relocate_home()
-			{
-			     location.href = "calendar_day.jsp";
-			} 
-			</script>
+	
 		</div>
       </div>
     </div>
@@ -53,7 +51,10 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Mercoledì</h5>
         <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(3)">
+			
+		
+
 			
 			<script>
 			function relocate_home()
@@ -72,7 +73,10 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Giovedì</h5>
          <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(4)">
+			
+	
+
 			
 			<script>
 			function relocate_home()
@@ -90,7 +94,10 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Venerdì</h5>
          <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(5)">
+			
+	
+
 			
 			<script>
 			function relocate_home()
@@ -107,7 +114,8 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Sabato</h5>
          <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(6)">
 			
 			<script>
 			function relocate_home()
@@ -124,7 +132,7 @@
       <div class="card-body">
         <h5 class="card-title" style="text-align: center;">Domenica</h5>
          <div style="padding-top: 30px; padding-left: 40px;">
-        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home()">
+        <input type="button" class="btn btn-dark" value="Prenotati ora" onclick=" relocate_home(7)">
 			
 			<script>
 			function relocate_home()
@@ -137,5 +145,10 @@
     </div>
   </div>
 </div>
-
+	<script>
+			function relocate_home(ngiorno)
+			{
+			     location.href = "calendar_day.jsp?ngiorno=" + ngiorno;
+			} 
+			</script>
 <%@ include file="footer_user.jsp"%>

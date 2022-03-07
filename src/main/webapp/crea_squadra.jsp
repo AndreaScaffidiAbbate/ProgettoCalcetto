@@ -1,3 +1,4 @@
+<%@page import="model.Giocatore"%>
 <%@ include file="header.jsp"%>
 <%@ include file="navbar_login.jsp"%>
 
@@ -9,6 +10,7 @@
 <br><br><br><br><br>
 
 <div class="container register">
+	
 	<div class="row">
 		<div class="col-md-3 register-left">
 			<img src="https://i.ibb.co/xD4jCMS/palla.png" alt="" />
@@ -20,10 +22,13 @@
 				
 			</ul>
 			<form action="dispatcher_squadra?action=registrazionesquadra" method = "POST">
+		
 			<div class="tab-content" id="myTabContent">
 				<div class="" id="home" role="tabpanel"
 					aria-labelledby="home-tab">
+			
 					<h3 class="register-heading">Registra la tua squadra</h3>
+					
 					<div class="row register-form">
 						<div class="col-md-3">
 							<div class="form-group">
@@ -135,6 +140,7 @@
 								<option value="Centrale" style="border-color: black;border-width: 1.5px">Centrale</option>
 								</select>
 							</div>
+
 						</div>
 						<div class="col-md-2">
 							<div class="form-group">
@@ -162,12 +168,16 @@
 									placeholder="N maglia *" value=""  name="n_maglia5" required style="border-color: black;border-width: 1.5px"/>
 							</div>
 						</div>
+					
+			
 					</div>
 				</div>
 			</div>
 		  </form>
 		</div>
+			
 	</div>
+	
 </div>
-
+		
 <%@ include file="footer.jsp"%>

@@ -21,9 +21,9 @@ public class Partita implements Serializable {
 	@Column(name="campo_partita")
 	private int campoPartita;
 
-	@Temporal(TemporalType.DATE)
+	
 	@Column(name="data_partita")
-	private Date dataPartita;
+	private String dataPartita;
 
 	@Column(name="orario_partita")
 	private String orarioPartita;
@@ -57,11 +57,11 @@ public class Partita implements Serializable {
 		this.campoPartita = campoPartita;
 	}
 
-	public Date getDataPartita() {
+	public String getDataPartita() {
 		return this.dataPartita;
 	}
 
-	public void setDataPartita(Date dataPartita) {
+	public void setDataPartita(String dataPartita) {
 		this.dataPartita = dataPartita;
 	}
 
@@ -88,5 +88,14 @@ public class Partita implements Serializable {
 	public void setSquadra2(Squadra squadra2) {
 		this.squadra2 = squadra2;
 	}
+
+	@Override
+	public String toString() {
+		return "Partita [idPartita=" + idPartita + ", campoPartita=" + campoPartita + ", dataPartita=" + dataPartita
+				+ ", orarioPartita=" + orarioPartita + ", squadra1=" + squadra1 + ", squadra2=" + squadra2 + "]";
+	}
+	
+	
+	
 
 }

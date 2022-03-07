@@ -33,10 +33,10 @@
 	        </a>
 	          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown" style="right: 0; left: auto;">
 	            <li><a class="dropdown-item" href="#">Modifica Utente</a></li>
-	            <li><a class="dropdown-item" href="#">Modifica Squadra</a></li>
+	            <li><a class="dropdown-item" href="modifica_squadra.jsp">Modifica Squadra</a></li>
 	            <li><a class="dropdown-item" href="#">Visualizza Squadra</a></li>
 	            <li><hr class="dropdown-divider"></li>
-	            <li><a class="dropdown-item" href="#">Log out</a></li>
+	            <li><a class="dropdown-item" href="GestioneLogout?action=logout">Log out</a></li>
 	          </ul>
         </li> 
     </ul>
