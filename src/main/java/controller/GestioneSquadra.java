@@ -101,12 +101,16 @@ public class GestioneSquadra extends HttpServlet {
 	}
 	
 	private void aggiungiGiocatore(Giocatore giocatore) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(giocatore);
 		em.getTransaction().commit();
 	}
 	
 	private Squadra getSquadraById(int id) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 			return (Squadra) em.createQuery("SELECT u FROM Squadra u WHERE u.idSquadra='" +id + "'").getSingleResult();
 		}
 	

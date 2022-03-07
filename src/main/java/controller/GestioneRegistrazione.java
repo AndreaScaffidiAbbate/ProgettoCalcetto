@@ -77,12 +77,16 @@ public class GestioneRegistrazione extends HttpServlet {
 	}
 
 	private void addUtente(Squadra utente) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(utente);
 		em.getTransaction().commit();
 	}
 	
 	private int getIdByUtente(String email) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		return (int) em.createQuery("SELECT u.idSquadra FROM Squadra u WHERE u.emailUtente='" +email + "'").getSingleResult();
 	}
 	

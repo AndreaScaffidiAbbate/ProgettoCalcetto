@@ -45,7 +45,9 @@ public class GestioneLogin extends HttpServlet {
 		
 		if(request.getParameter("action").equals("modificap")) {
 			HttpSession session = request.getSession();
-			session.setAttribute("partite", trovaPartitaSingolaAdmin2());
+			List <Partita> tutteLePartite = trovaPartitaAdmin();
+			int numeroPartita = Integer.parseInt(request.getParameter("num"));
+			session.setAttribute("partita", tutteLePartite.get(numeroPartita));
 			request.getRequestDispatcher("modifica_punti.jsp").forward(request, response);
 		
 		}
@@ -59,7 +61,7 @@ public class GestioneLogin extends HttpServlet {
 		String check = request.getParameter("check");
 		
 		try { 
-			this.utente = utenteCheck(email, password);
+			this.utente = utenteCheck(email, password); // qua arriva bene
 		}catch(NoResultException e) {
 			request.setAttribute("emailnontrovata", email);
 			request.setAttribute("passwordnontrovata", password);
@@ -89,7 +91,7 @@ public class GestioneLogin extends HttpServlet {
 				}
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("userLogin", this.utente);
+			session.setAttribute("userLogin", utente);
 			
 			//trovaPartita(utente.getIdSquadra());
 			if(trovaPartita(utente.getIdSquadra())!= null) {
@@ -120,7 +122,7 @@ public class GestioneLogin extends HttpServlet {
 			}
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("userLoginStaff", this.utente);
+		session.setAttribute("utente", this.utente);
 		
 		if(trovaPartita(utente.getIdSquadra())!= null) {
 			session.setAttribute("partite", trovaPartitaAdmin());
@@ -166,19 +168,26 @@ public class GestioneLogin extends HttpServlet {
 
 
 private Squadra utenteCheck(String email, String password) {
-	return em.createQuery(
+	EntityManagerFactory emg = Persistence.createEntityManagerFactory("WebAppCalcetto");
+	EntityManager ew = emg.createEntityManager();
+	this.utente = new Squadra();
+	return ew.createQuery(
 			"SELECT u FROM Squadra u WHERE u.emailUtente='" + email + "' AND u.passwordUtente='" + password + "'",
 			Squadra.class).getSingleResult();
 }
 
 
 private  List<Partita> trovaPartita(int squadra) { 
+	emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+	em = emf.createEntityManager();
 	return (List<Partita>) em.createQuery(
 			"SELECT u FROM Partita u WHERE u.squadra1.idSquadra='" + squadra + "' OR u.squadra2.idSquadra='" + squadra + "'",
 			Partita.class).getResultList();
 }
 
 private  List<Partita> trovaPartitaAdmin() { 
+	emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+	em = emf.createEntityManager();
 	return (List<Partita>) em.createQuery(
 			"SELECT u FROM Partita u ",
 			Partita.class).getResultList();
@@ -191,6 +200,8 @@ private  List<Partita> trovaPartitaAdmin() {
 //}
 
 private  Partita trovaPartitaSingolaAdmin2() { 
+	emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+	em = emf.createEntityManager();
 	return  em.createQuery(
 			"SELECT p FROM Partita p, Squadra s WHERE s.idSquadra = p.squadra1.idSquadra",
 			Partita.class).getSingleResult();

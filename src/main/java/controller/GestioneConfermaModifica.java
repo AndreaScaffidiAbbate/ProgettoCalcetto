@@ -120,12 +120,16 @@ public class GestioneConfermaModifica extends HttpServlet {
 	}
 
 	private void aggiungiGiocatore(Giocatore giocatore) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(giocatore);
 		em.getTransaction().commit();
 	}
 	
 	private void removeGiocatore(Giocatore giocatore) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.remove(giocatore);
 		em.getTransaction().commit();
@@ -133,14 +137,20 @@ public class GestioneConfermaModifica extends HttpServlet {
 	
 	
 	private List<Giocatore> getAllGiocatoreById(Squadra utente) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		return (List<Giocatore>) em.createQuery("SELECT u FROM Giocatore u WHERE u.squadra.idSquadra='" + utente.getIdSquadra() + "'").getResultList();
 	}
 
 	private Squadra getSquadraById(int id) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		return (Squadra) em.createQuery("SELECT u FROM Squadra u WHERE u.idSquadra='" + id + "'").getSingleResult();
 	}
 
 	public void modificaSquadra(Squadra u) {
+		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
+		em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.merge(u);
 		em.getTransaction().commit();

@@ -5,6 +5,7 @@
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
 
+
 <%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
 <%List<Giocatore> listagiocatori; %>
 <%if (session.getAttribute("listagiocatori") == null) {
@@ -18,21 +19,39 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
 
 
 <h1 style="margin-top: 150px; text-align: center;">Team : <%= utente.getNomeSquadra() %></h1>
-
 <div style="margin-top: 30px; margin-left: 50px; margin-right: 50px; background-color: white;" class="rounded-3">
-<table class="table caption-top" >
+<table  class="table caption-top" style="  text-align: center;" >
+ <thead>
+    <tr>
+       <th scope="col">VITTORIE</th>
+      <th scope="col">SCONFITTE</th>
+      <th scope="col">PAREGGI</th>
+    </tr>
+  </thead>
+   <tbody> 
+   <tr>
+      <td><%= utente.getVittoriaSquadra() %></td> 
+      <td><%= utente.getSconfittaSquadra() %></td> 
+      <td><%= utente.getPareggioSquadra() %></td>       
+    </tr>
+
+  </tbody>
+</table>
+</div>
+<h3 style="margin-top:20px; text-align: center;">STORICO PARTITE</h3>
+<div style="margin-top: 30px; margin-left: 50px; margin-right: 50px; background-color: white;" class="rounded-3">
+<table class="table caption-top"  style="  text-align: center;">
   <caption></caption>
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">OSPITE</th>
       <th scope="col">OSPITANTE</th>
+      <th scope="col">OSPITE</th>
       <th scope="col">DATA</th>
       <th scope="col">ORARIO</th>
       <th scope="col">CAMPO</th>
-       <th scope="col">V</th>
-      <th scope="col">S</th>
-      <th scope="col">P</th>
+       <th scope="col">ESITO</th>
+    
     </tr>
   </thead>
   <tbody> 
@@ -41,16 +60,16 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
 
 	%>
   <% for(Partita partita : listapartite) { %> 
-    <tr>    
+    <tr>
+    <% String esito = partita.getEsitoPartita() != null ? partita.getEsitoPartita() : "Partita Da Disputare"; %>    
       <th scope="row"><%= listapartite.indexOf(partita)+1 %></th>
       <td><%= partita.getSquadra1().getNomeSquadra() %></td>
       <td><%= partita.getSquadra2().getNomeSquadra() %></td>
       <td><%= partita.getDataPartita() %></td>
       <td><%= partita.getOrarioPartita() %></td>      
       <td><%= partita.getCampoPartita() %></td> 
-      <td><%= utente.getVittoriaSquadra() %></td> 
-      <td><%= utente.getSconfittaSquadra() %></td> 
-      <td><%= utente.getPareggioSquadra() %></td>            
+      <td><%= esito %></td> 
+          
     </tr>
     <% } %> 
   <% } %>
@@ -71,7 +90,7 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
 
 
 <div style="margin-left: 50px; margin-right: 50px; background-color: white;" class="rounded-3">
-<table class="table caption-top" >
+<table class="table caption-top" style="  text-align: center;" >
   <caption></caption>
   <thead>
     <tr>
@@ -90,24 +109,29 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
       <td><%= giocatore.getCognomeGiocatore() %></td>
       <td><%= giocatore.getRuoloGiocatore() %></td>
       <td><%= giocatore.getNumeroGiocatore() %></td>
+     
     </tr>
     <% } %>
-   <div class= "d-flex justify-content-center">
-      <input type="button" class="btn btn-danger" value="Modifica"onclick=" relocate_home()">
+   
+
+		
 			
-			<script>
-			function relocate_home()
-			{
-			     location.href = "modifica_squadra.jsp";
-			} 
-			</script>
-  </div>
+
     
     
   </tbody>
 </table>
 </div>
 
+<script>
+			function relocate_home()
+			{
+			     location.href = "modifica_squadra.jsp";
+			} 
+			</script>
 
+<div  class= "d-flex justify-content-center">
+	<input type="button" class="btn btn-danger" value="Modifica"onclick=" relocate_home()">
+</div>
 <br><br><br><br>
 <%@ include file="footer_user.jsp"%>

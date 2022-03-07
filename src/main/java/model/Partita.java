@@ -27,6 +27,9 @@ public class Partita implements Serializable {
 
 	@Column(name="orario_partita")
 	private String orarioPartita;
+	
+	@Column(name="esito_partita")
+	private String esitoPartita;
 
 	//bi-directional many-to-one association to Squadra
 	@ManyToOne
@@ -87,6 +90,16 @@ public class Partita implements Serializable {
 
 	public void setSquadra2(Squadra squadra2) {
 		this.squadra2 = squadra2;
+	}
+
+
+	
+	public String getEsitoPartita() {
+		return esitoPartita;
+	}
+
+	public void setEsitoPartita(String esitoPartita) {
+		this.esitoPartita = esitoPartita;
 	}
 
 	@Override

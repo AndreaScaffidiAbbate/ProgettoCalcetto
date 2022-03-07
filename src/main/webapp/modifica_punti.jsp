@@ -16,6 +16,7 @@
 
 
 
+<%=session.getAttribute("prova") %>
 
 
 <div class="container register">
@@ -34,8 +35,8 @@
 					aria-labelledby="home-tab">
 					<h3 class="register-heading">ADMIN POWA</h3>
 					<div class="row register-form">
-					 <% if(session.getAttribute("partite") != null) {
-									partita = ((Partita)session.getAttribute("partite"));
+					 <% if(session.getAttribute("partita") != null) {
+									partita = ((Partita)session.getAttribute("partita"));
 								 
 							%>
 						
