@@ -35,7 +35,7 @@
 
 <br>
 
-<div class="d-flex justify-content-center">
+<div class="d-flex justify-content-center" style="background-image: url('https://thepaintpeople.com/wp-content/uploads/2015/09/prepare-bare-wood-staining.jpg'); background-repeat: no-repeat; background-size:cover; margin-left: 50px; margin-right: 50px;">
    <div>
    <h1 class="titolo2">Sporting club Roma è una realtà presente sul territorio dal 1986.</h1>
    <br>
@@ -54,49 +54,38 @@ Che aspetti? Puoi trovarci in Via Sandro Sandri, 99, 00159 Roma.</h2>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_PALLONI-min.jpg" alt="pallone" class="image" style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Palloni</div>
-  </div>
+  <a href="https://www.nike.com/it/w?q=pallone%20da%20calcio&vst=pallone" ><div class="overlay"><div class="text">Palloni</div></div></a>
+  
 </div>
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_TEMPO%20LIBERO-min.jpg" alt="forniture" class="image"  style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Lifestyle</div>
-  </div>
+  <a href="https://www.nike.com/it/w?q=lifestyle&vst=lifestyle&sort=priceDesc" ><div class="overlay"><div class="text">Lifestyle</div></div></a>
 </div>
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/SCARPE%20CALCETTO-min.jpg" alt="pallone" class="image" style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Scarpe da calcetto</div>
-  </div>
+  <a href="https://www.nike.com/it/w?q=scarpe%20da%20calcetto&vst=scarpe%20da%20calcetto" ><div class="overlay"><div class="text">Scarpe da calcetto</div></div></a>
 </div>
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/ATTREZZATUREe3-min.jpg" alt="pallone" class="image" style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Attrezzature sportive</div>
-  </div>
+  <a href="https://www.nike.com/it/w/uomo-borsone-3eyowznik1" ><div class="overlay"><div class="text">Attrezzature sportive</div></div></a>
 </div>
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_INTIMO%20TECNICO-min.jpg" alt="pallone" class="image" style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Intimo tecnico</div>
-  </div>
+  <a href="https://www.nike.com/it/w?q=intimo%20tecnico&vst=intimo%20tecnico" ><div class="overlay"><div class="text">Intimo tecnico</div></div></a>
 </div>
   </div>
   <div class="column">
     <div class="container" style="width: 300px; height: 350px;">
   <img src="https://www.footballitalia.it/img/cms/2022/foo/categorie/090222_TEAMWEAR-min.jpg" alt="pallone" class="image" style="height: 340px;">
-  <div class="overlay">
-    <div class="text">Teamwear</div>
-  </div>
+  <a href="https://www.nike.com/it/w/club-di-calcio-del-mondo-6fu9q" ><div class="overlay"><div class="text">Teamwear</div></div></a>
 </div>
   </div>
   
