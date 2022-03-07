@@ -83,40 +83,48 @@ public class GestioneConfermaModifica extends HttpServlet {
 				ruoli.add(ruolo3);
 				ruoli.add(ruolo4);
 				ruoli.add(ruolo5);
+				ArrayList<String> nomi = new ArrayList<String>();
+				nomi.add(nome1);
+				nomi.add(nome2);
+				nomi.add(nome3);
+				nomi.add(nome4);
+				nomi.add(nome5);
+				ArrayList<String> cognomi = new ArrayList<String>();
+				cognomi.add(cognome1);
+				cognomi.add(cognome2);
+				cognomi.add(cognome3);
+				cognomi.add(cognome4);
+				cognomi.add(cognome5);
+				ArrayList<Integer> nMaglie = new ArrayList<Integer>();
+				nMaglie.add(nmaglia1);
+				nMaglie.add(nmaglia2);
+				nMaglie.add(nmaglia3);
+				nMaglie.add(nmaglia4);
+				nMaglie.add(nmaglia5);
 
 				if (ruoli.contains("Pivot") && ruoli.contains("Portiere") && ruoli.contains("Laterale 1")
 						&& ruoli.contains("Laterale 2") && ruoli.contains("Centrale")) {
 					Squadra squadra = getSquadraById(idsquadra);
-						List<Giocatore> listagiocatorivecchi = getAllGiocatoreById(utente);
-					    for (Giocatore giocatore : listagiocatorivecchi) {
-					    	removeGiocatore(giocatore);
-					    }
-					
-					Giocatore giocatore1 = new Giocatore(cognome1, nome1, nmaglia1, ruolo1, squadra);
-					aggiungiGiocatore(giocatore1);
-					Giocatore giocatore2 = new Giocatore(cognome2, nome2, nmaglia2, ruolo2, squadra);
-					aggiungiGiocatore(giocatore2);
-					Giocatore giocatore3 = new Giocatore(cognome3, nome3, nmaglia3, ruolo3, squadra);
-					aggiungiGiocatore(giocatore3);
-					Giocatore giocatore4 = new Giocatore(cognome4, nome4, nmaglia4, ruolo4, squadra);
-					aggiungiGiocatore(giocatore4);
-					Giocatore giocatore5 = new Giocatore(cognome5, nome5, nmaglia5, ruolo5, squadra);
-					aggiungiGiocatore(giocatore5);
-					
-					List<Giocatore> listagiocatorinuovi = new ArrayList<Giocatore>();
-                    listagiocatorinuovi.add(giocatore1);
-                    listagiocatorinuovi.add(giocatore2);
-                    listagiocatorinuovi.add(giocatore3);
-                    listagiocatorinuovi.add(giocatore4);
-                    listagiocatorinuovi.add(giocatore5);
-                    session.setAttribute("listagiocatori", listagiocatorinuovi);
+					List<Giocatore> listaGiocatori  = new ArrayList<Giocatore>();
+					for (Giocatore giocatore : squadra.getGiocatores()) {
+						giocatore.setCognomeGiocatore(cognomi.get(squadra.getGiocatores().indexOf(giocatore)));
+						giocatore.setNomeGiocatore(nomi.get(squadra.getGiocatores().indexOf(giocatore)));
+						giocatore.setNumeroGiocatore(nMaglie.get(squadra.getGiocatores().indexOf(giocatore)));
+						giocatore.setRuoloGiocatore(ruoli.get(squadra.getGiocatores().indexOf(giocatore)));
+						aggiungiGiocatore(giocatore);
+						listaGiocatori.add(giocatore);
+					}
+					squadra.setGiocatores(listaGiocatori);
+					modificaSquadra(squadra);
+					session.setAttribute("userLogin", squadra);
+					request.getRequestDispatcher("home_user.jsp").forward(request, response);
 				}
-
+			
 			}
-
-			response.sendRedirect("home_user.jsp");
+				
+			request.getRequestDispatcher("home_user.jsp").forward(request, response);
 		}
-
+		request.getRequestDispatcher("home_user.jsp").forward(request, response);
 	}
 
 	private void aggiungiGiocatore(Giocatore giocatore) {
@@ -126,7 +134,7 @@ public class GestioneConfermaModifica extends HttpServlet {
 		em.merge(giocatore);
 		em.getTransaction().commit();
 	}
-	
+
 	private void removeGiocatore(Giocatore giocatore) {
 		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
 		em = emf.createEntityManager();
@@ -134,12 +142,13 @@ public class GestioneConfermaModifica extends HttpServlet {
 		em.remove(giocatore);
 		em.getTransaction().commit();
 	}
-	
-	
+
 	private List<Giocatore> getAllGiocatoreById(Squadra utente) {
 		emf = Persistence.createEntityManagerFactory("WebAppCalcetto");
 		em = emf.createEntityManager();
-		return (List<Giocatore>) em.createQuery("SELECT u FROM Giocatore u WHERE u.squadra.idSquadra='" + utente.getIdSquadra() + "'").getResultList();
+		return (List<Giocatore>) em
+				.createQuery("SELECT u FROM Giocatore u WHERE u.squadra.idSquadra='" + utente.getIdSquadra() + "'")
+				.getResultList();
 	}
 
 	private Squadra getSquadraById(int id) {

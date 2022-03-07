@@ -104,8 +104,8 @@ public class Partita implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Partita [idPartita=" + idPartita + ", campoPartita=" + campoPartita + ", dataPartita=" + dataPartita
-				+ ", orarioPartita=" + orarioPartita + ", squadra1=" + squadra1 + ", squadra2=" + squadra2 + "]";
+		return " ###Partita [idPartita=" + idPartita + ", campoPartita=" + campoPartita 
+				+ ", orarioPartita=" + orarioPartita +  "]";
 	}
 	
 	

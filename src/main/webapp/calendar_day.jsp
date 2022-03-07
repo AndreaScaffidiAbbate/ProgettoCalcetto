@@ -1,11 +1,14 @@
 <%@ include file="header.jsp"%>
 <%@ include file="navbar.jsp"%>
+<%@page import="model.Partita"%>
+<%@page import="model.Giocatore"%>
+<%@page import="java.util.List"%>
 
 <link href="stylesheetday.css" rel="stylesheet" id="bootstrap-css10">
 
 
 <br><br><br><br>
-
+<%Partita [][] prenotazioni = (Partita[][]) session.getAttribute("prenotazioni");%>
 <h1 class="titolo">Prenotati ora</h1>
 
 <br><br><br><br>
@@ -27,18 +30,18 @@
 
 <!-- Tab content -->
 <div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+  <h3>Mattina</h3>
+  <p><%= prenotazioni[0][0]!=null?prenotazioni[0][0]:"non presente " %></p>
 </div>
 
 <div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <h3>Pomeriggio</h3>
+  <p><%=prenotazioni[0][1]!=null?prenotazioni[0][1]:"non presente " %></p>
 </div>
 
 <div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Sera</h3>
+  <p><%=prenotazioni[0][2]!=null?prenotazioni[0][2]:"non presente "%></p>
 </div> 
     </div>
   </div>
@@ -61,18 +64,18 @@
 
 <!-- Tab content -->
 <div id="London1" class="tabcontent1">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+  <h3>Mattina</h3>
+  <p><%= prenotazioni[1][0]!=null?prenotazioni[1][0]:"non presente " %></p>
 </div>
 
 <div id="Paris1" class="tabcontent1">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <h3>Pomeriggio</h3>
+  <p><%= prenotazioni[1][1]!=null?prenotazioni[1][1]:"non presente "%></p>
 </div>
 
 <div id="Tokyo1" class="tabcontent1">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Sera</h3>
+  <p><%=prenotazioni[1][2]!=null?prenotazioni[1][2]:"non presente " %></p>
 </div> 
     </div>
   </div>
@@ -98,18 +101,18 @@
 
 <!-- Tab content -->
 <div id="London2" class="tabcontent2">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+    <h3>Mattina</h3>
+  <p><%= prenotazioni[2][0]!=null?prenotazioni[2][0]:"non presente " %></p>
 </div>
 
 <div id="Paris2" class="tabcontent2">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <h3>Pomeriggio</h3>
+  <p><%=prenotazioni[2][1]!=null?prenotazioni[2][1]:"non presente " %></p>
 </div>
 
 <div id="Tokyo2" class="tabcontent2">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Sera</h3>
+  <p><%=prenotazioni[2][2]!=null?prenotazioni[2][2]:"non presente "%></p>
 </div> 
     </div>
   </div>
@@ -132,18 +135,18 @@
 
 <!-- Tab content -->
 <div id="London3" class="tabcontent3">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+  <h3>Mattina</h3>
+  <p><%= prenotazioni[3][0]!=null?prenotazioni[3][0]:"non presente " %></p>
 </div>
 
 <div id="Paris3" class="tabcontent3">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <h3>Pomeriggio</h3>
+  <p><%=prenotazioni[3][1]!=null?prenotazioni[3][1]:"non presente " %></p>
 </div>
 
 <div id="Tokyo3" class="tabcontent3">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Sera</h3>
+  <p><%=prenotazioni[3][2]!=null?prenotazioni[3][2]:"non presente "%></p>
 </div> 
     </div>
   </div>
@@ -168,18 +171,18 @@
 
 <!-- Tab content -->
 <div id="London4" class="tabcontent4">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+    <h3>Mattina</h3>
+  <p><%= prenotazioni[4][0]!=null?prenotazioni[4][0]:"non presente " %></p>
 </div>
 
 <div id="Paris4" class="tabcontent4">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <h3>Pomeriggio</h3>
+  <p><%=prenotazioni[4][1]!=null?prenotazioni[4][1]:"non presente " %></p>
 </div>
 
 <div id="Tokyo4" class="tabcontent4">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <h3>Sera</h3>
+  <p><%=prenotazioni[4][2]!=null?prenotazioni[4][2]:"non presente "%></p>
 </div> 
     </div>
   </div>
