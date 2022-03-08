@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@page import="model.Squadra"%>
 <%@ include file="header.jsp"%>
-<%@ include file="navbar.jsp"%>
+<%@ include file="navbar_admin.jsp"%>
 
 <%Squadra utente = (Squadra) session.getAttribute("utente");%>
 
@@ -29,7 +29,7 @@
 		<thead>
 			<tr>
 				<th scope="col">#</th>
-				<th scope="col">OSPITANTE</th>
+				<th scope="col">CASA</th>
 				<th scope="col">OSPITE</th>
 				<th scope="col">DATA</th>
 				<th scope="col">ORARIO</th>
@@ -65,6 +65,14 @@
 				<td><%= partita.getSquadra2().getSconfittaSquadra() %></td>				
 				<td><%= partita.getSquadra2().getPareggioSquadra() %></td>
 				<td><%= esito %></td>
+				<td><form action="AssegnaVittoria" method="POST">				
+				  <input type="text" id="esito"  name="esito" value="Reset" hidden=true>
+				  <input type="text" id="partita"  name="partita" value="<%= partita.getIdPartita() %>" hidden=true>
+				  <input type="text" id="s1"  name="s1" value="<%= partita.getSquadra1().getNomeSquadra() %>" hidden=true>
+				  <input type="text" id="s2"  name="s2" value="<%= partita.getSquadra2().getNomeSquadra() %>" hidden=true>
+				  <input type="submit" class="btn btn-primary btn-sm "
+					value="reset">
+				</form></td>
 				<td><form action="AssegnaVittoria" method="POST">
 				  <input type="text" id="s1"  name="s1" value="<%= partita.getSquadra1().getNomeSquadra() %>" hidden=true>
 				  <input type="text" id="esito"  name="esito" value="Vittoria Casa" hidden=true>
@@ -81,7 +89,7 @@
 				  <input type="text" id="partita"  name="partita" value="<%= partita.getIdPartita() %>" hidden=true>
      			  <input type="text" id="s2"  name="s2" value="<%= partita.getSquadra2().getNomeSquadra() %>" hidden=true>
      			  <input type="text" id="draw"  name="draw" value="draw" placeholder="draw" hidden=true>
-				<input type="submit" class="btn btn-danger btn-sm "
+				<input type="submit" class="btn btn-warning btn-sm "
 					value="X">
 				</form></td>
 				<td><form action="AssegnaVittoria" method="POST">
@@ -127,5 +135,5 @@
 			     
 			//} 
 			</script>
-<%@ include file="footer_user.jsp"%>
+<%@ include file="footer_admin.jsp"%>
 

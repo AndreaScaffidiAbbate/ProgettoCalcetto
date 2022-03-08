@@ -6,7 +6,7 @@
 <%@ include file="navbar.jsp"%>
 
 
-<%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
+<%Squadra utente = (Squadra) session.getAttribute("utente");%>
 <%List<Giocatore> listagiocatori; %>
 <%if (session.getAttribute("listagiocatori") == null) {
 	 listagiocatori = utente.getGiocatores();
@@ -45,7 +45,7 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">OSPITANTE</th>
+      <th scope="col">CASA</th>
       <th scope="col">OSPITE</th>
       <th scope="col">DATA</th>
       <th scope="col">ORARIO</th>
@@ -64,7 +64,7 @@ else listagiocatori = (List<Giocatore>) session.getAttribute("listagiocatori");
     <% String esito = partita.getEsitoPartita() != null ? partita.getEsitoPartita() : "Partita Da Disputare"; %>    
       <th scope="row"><%= listapartite.indexOf(partita)+1 %></th>
       <td><%= partita.getSquadra1().getNomeSquadra() %></td>
-      <td><%= partita.getSquadra2().getNomeSquadra() %></td>
+      <td><%= partita.getSquadra2()!=null? partita.getSquadra2().getNomeSquadra() :"--------" %></td>
       <td><%= partita.getDataPartita() %></td>
       <td><%= partita.getOrarioPartita() %></td>      
       <td><%= partita.getCampoPartita() %></td> 

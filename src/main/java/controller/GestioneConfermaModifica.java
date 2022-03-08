@@ -116,7 +116,7 @@ public class GestioneConfermaModifica extends HttpServlet {
 					}
 					squadra.setGiocatores(listaGiocatori);
 					modificaSquadra(squadra);
-					session.setAttribute("userLogin", squadra);
+					session.setAttribute("utente", squadra);
 					request.getRequestDispatcher("home_user.jsp").forward(request, response);
 				}
 			

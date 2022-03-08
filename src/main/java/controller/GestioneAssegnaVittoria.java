@@ -44,8 +44,8 @@ public class GestioneAssegnaVittoria extends HttpServlet {
 	
 	Squadra squadraCasa = getSquadraByName(s1);
 	Squadra squadraOspiti = getSquadraByName(s2);
-	
-			if(partitaDaAggiornare.getEsitoPartita()!=null) {
+			
+			if(partitaDaAggiornare.getEsitoPartita()!=null ) {
 				// togli i punti in base a esito vecchio che stai togliendo
 				switch(partitaDaAggiornare.getEsitoPartita()) {
 				case "Vittoria Casa": 
@@ -95,19 +95,22 @@ public class GestioneAssegnaVittoria extends HttpServlet {
 				case "Pareggio": 
 					squadraOspiti.setPareggioSquadra(squadraOspiti.getPareggioSquadra()+1);
 					squadraCasa.setPareggioSquadra(squadraCasa.getPareggioSquadra()+1);
-				break;
-				
+				break;	
 				}
 			}
 			
 			
 			
-			
+			if(esito.equals("Reset")) {
+				partitaDaAggiornare.setEsitoPartita(null);
+			}else {
+				partitaDaAggiornare.setEsitoPartita(esito);
+			}
 			modificaSquadra(squadraCasa);
 			modificaSquadra(squadraOspiti);
 			partitaDaAggiornare.setSquadra1(squadraCasa);
 			partitaDaAggiornare.setSquadra2(squadraOspiti);
-			partitaDaAggiornare.setEsitoPartita(esito);
+			
 			modificaPartita(partitaDaAggiornare);
 			
 			session.setAttribute("partite", trovaPartitaAdmin()); 

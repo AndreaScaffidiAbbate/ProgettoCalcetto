@@ -91,8 +91,8 @@ public class GestioneLogin extends HttpServlet {
 				}
 			
 			HttpSession session = request.getSession();
-			session.setAttribute("userLogin", utente);
-			
+			session.setAttribute("utente", utente);
+			System.out.println(utente);
 			//trovaPartita(utente.getIdSquadra());
 			if(trovaPartita(utente.getIdSquadra())!= null) {
 			session.setAttribute("partite", trovaPartita(utente.getIdSquadra()));

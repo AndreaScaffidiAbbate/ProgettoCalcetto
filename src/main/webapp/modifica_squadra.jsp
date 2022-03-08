@@ -10,7 +10,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <br><br><br><br><br>
-<%Squadra utente = (Squadra) session.getAttribute("userLogin");%>
+<%Squadra utente = (Squadra) session.getAttribute("utente");%>
 <%List<Giocatore> listagiocatori; %>
 <%if (session.getAttribute("listagiocatori") == null) {
 	 listagiocatori = utente.getGiocatores();

@@ -14,7 +14,8 @@
  <% LocalDate currentdate = LocalDate.now();
  	
  	
- %>
+ %> 
+
 <br><br><br><br>
 
 <div class="row row-cols-1 row-cols-md-5 g-4" style="margin-left: 300px; margin-right: 300px; padding-bottom: 50px;">
@@ -159,7 +160,8 @@
 	<script>
 			function relocate_home(ngiorno)
 			{
-			     location.href = "GestionePrenotazione?ngiorno=" + ngiorno;
+				var today = new Date();
+			     location.href = "GestionePrenotazione?ngiorno=" + ngiorno+"&dataP="+today.getFullYear()+'-'+("0" + (today.getMonth() + 1)).slice(-2)+'-'+("0" +( today.getDate()+ngiorno-1)).slice(-2);
 			} 
 			</script>
 <%@ include file="footer_user.jsp"%>

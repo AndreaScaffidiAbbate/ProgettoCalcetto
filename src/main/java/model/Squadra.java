@@ -57,9 +57,6 @@ public class Squadra implements Serializable {
 	@OneToMany(mappedBy="squadra1")
 	private List<Partita> partitas1;
 
-	//bi-directional many-to-one association to Partita
-	@OneToMany(mappedBy="squadra2")
-	private List<Partita> partitas2;
 
 	public Squadra() {
 	}
@@ -196,27 +193,9 @@ public class Squadra implements Serializable {
 		return partitas1;
 	}
 
-	public List<Partita> getPartitas2() {
-		return this.partitas2;
-	}
+	
 
-	public void setPartitas2(List<Partita> partitas2) {
-		this.partitas2 = partitas2;
-	}
-
-	public Partita addPartitas2(Partita partitas2) {
-		getPartitas2().add(partitas2);
-		partitas2.setSquadra2(this);
-
-		return partitas2;
-	}
-
-	public Partita removePartitas2(Partita partitas2) {
-		getPartitas2().remove(partitas2);
-		partitas2.setSquadra2(null);
-
-		return partitas2;
-	}
+	
 
 	@Override
 	public boolean equals(Object obj) {
@@ -231,7 +210,6 @@ public class Squadra implements Serializable {
 				&& Objects.equals(emailUtente, other.emailUtente) && Objects.equals(giocatores, other.giocatores)
 				&& Objects.equals(nomeSquadra, other.nomeSquadra) && Objects.equals(nomeUtente, other.nomeUtente)
 				&& pareggioSquadra == other.pareggioSquadra && Objects.equals(partitas1, other.partitas1)
-				&& Objects.equals(partitas2, other.partitas2) && Objects.equals(passwordUtente, other.passwordUtente)
 				&& ruoloUtente == other.ruoloUtente && sconfittaSquadra == other.sconfittaSquadra
 				&& vittoriaSquadra == other.vittoriaSquadra;
 	}
@@ -243,7 +221,7 @@ public class Squadra implements Serializable {
 				+ nomeUtente + ", pareggioSquadra=" + pareggioSquadra + ", passwordUtente=" + passwordUtente
 				+ ", ruoloUtente=" + ruoloUtente + ", sconfittaSquadra=" + sconfittaSquadra + ", vittoriaSquadra="
 				+ vittoriaSquadra + ", giocatores=" + giocatores + ", partitas1=" + partitas1 + ", partitas2="
-				+ partitas2 + "]";
+				+ "]";
 	}
 	
 }

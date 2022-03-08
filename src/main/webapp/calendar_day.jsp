@@ -3,11 +3,12 @@
 <%@page import="model.Partita"%>
 <%@page import="model.Giocatore"%>
 <%@page import="java.util.List"%>
-
+<%@page import="model.Squadra"%>
 <link href="stylesheetday.css" rel="stylesheet" id="bootstrap-css10">
 
 
 <br><br><br><br>
+<%Squadra utente = (Squadra) session.getAttribute("utente");%>
 <%Partita [][] prenotazioni = (Partita[][]) session.getAttribute("prenotazioni");%>
 <h1 class="titolo">Prenotati ora</h1>
 
@@ -31,17 +32,98 @@
 <!-- Tab content -->
 <div id="London" class="tabcontent">
   <h3>Mattina</h3>
-  <p><%= prenotazioni[0][0]!=null?prenotazioni[0][0]:"non presente " %></p>
+  <% if(prenotazioni[0][0]!=null){ %>
+  <% if(prenotazioni[0][0].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[0][0].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[0][0].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[0][0].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div>
 
 <div id="Paris" class="tabcontent">
   <h3>Pomeriggio</h3>
-  <p><%=prenotazioni[0][1]!=null?prenotazioni[0][1]:"non presente " %></p>
-</div>
+   <% if(prenotazioni[0][1]!=null){ %>
+  <% if(prenotazioni[0][1].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[0][1].getSquadra1().getNomeSquadra() %>" hidden=true>
+      <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[0][1].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[0][1].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 
+</div>
 <div id="Tokyo" class="tabcontent">
   <h3>Sera</h3>
-  <p><%=prenotazioni[0][2]!=null?prenotazioni[0][2]:"non presente "%></p>
+  
+ <% if(prenotazioni[0][2]!=null){ %>
+  <% if(prenotazioni[0][2].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[0][2].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[0][2].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[0][2].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="1" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div> 
     </div>
   </div>
@@ -57,25 +139,105 @@
     <div class="flip-box-back">
        <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks1" onclick="openCity1(event, 'London1')">Mattina</button>
-  <button class="tablinks1" onclick="openCity1(event, 'Paris1')">Pomeriggio</button>
-  <button class="tablinks1" onclick="openCity1(event, 'Tokyo1')">Sera</button>
+  <button class="tablinks" onclick="openCity1(event, 'London1')">Mattina</button>
+  <button class="tablinks" onclick="openCity1(event, 'Paris1')">Pomeriggio</button>
+  <button class="tablinks" onclick="openCity1(event, 'Tokyo1')">Sera</button>
 </div>
 
 <!-- Tab content -->
 <div id="London1" class="tabcontent1">
   <h3>Mattina</h3>
-  <p><%= prenotazioni[1][0]!=null?prenotazioni[1][0]:"non presente " %></p>
+  <% if(prenotazioni[1][0]!=null){ %>
+  <% if(prenotazioni[1][0].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[1][0].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[1][0].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[1][0].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div>
 
 <div id="Paris1" class="tabcontent1">
   <h3>Pomeriggio</h3>
-  <p><%= prenotazioni[1][1]!=null?prenotazioni[1][1]:"non presente "%></p>
-</div>
+   <% if(prenotazioni[1][1]!=null){ %>
+  <% if(prenotazioni[1][1].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[1][1].getSquadra1().getNomeSquadra() %>" hidden=true>
+      <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[1][1].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[1][1].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 
+</div>
 <div id="Tokyo1" class="tabcontent1">
   <h3>Sera</h3>
-  <p><%=prenotazioni[1][2]!=null?prenotazioni[1][2]:"non presente " %></p>
+  
+ <% if(prenotazioni[1][2]!=null){ %>
+  <% if(prenotazioni[1][2].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[1][2].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[1][2].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[1][2].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="2" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 </div> 
     </div>
   </div>
@@ -90,29 +252,109 @@
   <div class="flip-box-inner">
     <div class="flip-box-front">
       <h2 style="font-family: 'Anton', sans-serif; color: black;">CAMPO 3</h2>
-    </div>
+   </div>
     <div class="flip-box-back">
        <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks2" onclick="openCity2(event, 'London2')">Mattina</button>
-  <button class="tablinks2" onclick="openCity2(event, 'Paris2')">Pomeriggio</button>
-  <button class="tablinks2" onclick="openCity2(event, 'Tokyo2')">Sera</button>
+  <button class="tablinks" onclick="openCity2(event, 'London2')">Mattina</button>
+  <button class="tablinks" onclick="openCity2(event, 'Paris2')">Pomeriggio</button>
+  <button class="tablinks" onclick="openCity2(event, 'Tokyo2')">Sera</button>
 </div>
 
 <!-- Tab content -->
 <div id="London2" class="tabcontent2">
-    <h3>Mattina</h3>
-  <p><%= prenotazioni[2][0]!=null?prenotazioni[2][0]:"non presente " %></p>
+  <h3>Mattina</h3>
+  <% if(prenotazioni[2][0]!=null){ %>
+  <% if(prenotazioni[2][0].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[2][0].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[2][0].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[2][0].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div>
 
 <div id="Paris2" class="tabcontent2">
   <h3>Pomeriggio</h3>
-  <p><%=prenotazioni[2][1]!=null?prenotazioni[2][1]:"non presente " %></p>
-</div>
+   <% if(prenotazioni[2][1]!=null){ %>
+  <% if(prenotazioni[2][1].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[2][1].getSquadra1().getNomeSquadra() %>" hidden=true>
+      <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[2][1].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[2][1].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 
+</div>
 <div id="Tokyo2" class="tabcontent2">
   <h3>Sera</h3>
-  <p><%=prenotazioni[2][2]!=null?prenotazioni[2][2]:"non presente "%></p>
+  
+ <% if(prenotazioni[2][2]!=null){ %>
+  <% if(prenotazioni[2][2].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[2][2].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[2][2].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[2][2].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="3" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 </div> 
     </div>
   </div>
@@ -128,25 +370,105 @@
     <div class="flip-box-back">
        <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks3" onclick="openCity3(event, 'London3')">Mattina</button>
-  <button class="tablinks3" onclick="openCity3(event, 'Paris3')">Pomeriggio</button>
-  <button class="tablinks3" onclick="openCity3(event, 'Tokyo3')">Sera</button>
+  <button class="tablinks" onclick="openCity3(event, 'London3')">Mattina</button>
+  <button class="tablinks" onclick="openCity3(event, 'Paris3')">Pomeriggio</button>
+  <button class="tablinks" onclick="openCity3(event, 'Tokyo3')">Sera</button>
 </div>
 
 <!-- Tab content -->
 <div id="London3" class="tabcontent3">
   <h3>Mattina</h3>
-  <p><%= prenotazioni[3][0]!=null?prenotazioni[3][0]:"non presente " %></p>
+  <% if(prenotazioni[3][0]!=null){ %>
+  <% if(prenotazioni[3][0].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[3][0].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[3][0].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[3][0].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div>
 
 <div id="Paris3" class="tabcontent3">
   <h3>Pomeriggio</h3>
-  <p><%=prenotazioni[3][1]!=null?prenotazioni[3][1]:"non presente " %></p>
-</div>
+   <% if(prenotazioni[3][1]!=null){ %>
+  <% if(prenotazioni[3][1].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[3][1].getSquadra1().getNomeSquadra() %>" hidden=true>
+      <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[3][1].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[3][1].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 
+</div>
 <div id="Tokyo3" class="tabcontent3">
   <h3>Sera</h3>
-  <p><%=prenotazioni[3][2]!=null?prenotazioni[3][2]:"non presente "%></p>
+  
+ <% if(prenotazioni[3][2]!=null){ %>
+  <% if(prenotazioni[3][2].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[3][2].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[3][2].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[3][2].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="4" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 </div> 
     </div>
   </div>
@@ -160,29 +482,109 @@
   <div class="flip-box-inner">
     <div class="flip-box-front">
       <h2 style="font-family: 'Anton', sans-serif; color: black;">CAMPO 5</h2>
-    </div>
+   </div>
     <div class="flip-box-back">
        <!-- Tab links -->
 <div class="tab">
-  <button class="tablinks4" onclick="openCity4(event, 'London4')">Mattina</button>
-  <button class="tablinks4" onclick="openCity4(event, 'Paris4')">Pomeriggio</button>
-  <button class="tablinks4" onclick="openCity4(event, 'Tokyo4')">Sera</button>
+  <button class="tablinks" onclick="openCity4(event, 'London4')">Mattina</button>
+  <button class="tablinks" onclick="openCity4(event, 'Paris4')">Pomeriggio</button>
+  <button class="tablinks" onclick="openCity4(event, 'Tokyo4')">Sera</button>
 </div>
 
 <!-- Tab content -->
 <div id="London4" class="tabcontent4">
-    <h3>Mattina</h3>
-  <p><%= prenotazioni[4][0]!=null?prenotazioni[4][0]:"non presente " %></p>
+  <h3>Mattina</h3>
+  <% if(prenotazioni[4][0]!=null){ %>
+  <% if(prenotazioni[4][0].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[4][0].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[4][0].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[4][0].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="mattina" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
+
 </div>
 
 <div id="Paris4" class="tabcontent4">
   <h3>Pomeriggio</h3>
-  <p><%=prenotazioni[4][1]!=null?prenotazioni[4][1]:"non presente " %></p>
-</div>
+   <% if(prenotazioni[4][1]!=null){ %>
+  <% if(prenotazioni[4][1].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[4][1].getSquadra1().getNomeSquadra() %>" hidden=true>
+      <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[4][1].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[4][1].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="pomeriggio" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 
+</div>
 <div id="Tokyo4" class="tabcontent4">
   <h3>Sera</h3>
-  <p><%=prenotazioni[4][2]!=null?prenotazioni[4][2]:"non presente "%></p>
+  
+ <% if(prenotazioni[4][2]!=null){ %>
+  <% if(prenotazioni[4][2].getSquadra2() != null ){ %>
+ <div>Non Prenotabile</div>
+  <% } else { %>
+    <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspite" hidden=true>
+   <input type="text" id="data"  name="data" value="2022/03/09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="<%= utente.getNomeSquadra()%>" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%=prenotazioni[4][2].getSquadra1().getNomeSquadra() %>" hidden=true>
+       <input type="text" id="idPartita"  name="idPartita" value="<%=prenotazioni[4][2].getIdPartita()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospite</button>
+  <div><%= prenotazioni[4][2].getSquadra1().getNomeSquadra() %></div>
+  </form>
+  <% }}else{ %>
+  <form action="gestione_partita" method="post">
+   <input type="text" id="azione"  name="azione" value="prenotaOspitante" hidden=true>
+   <input type="text" id="data"  name="data" value="2022-03-09" hidden=true>
+      <input type="text" id="orario"  name="orario" value="sera" hidden=true>
+      <input type="text" id="ospite"  name="ospite" value="" hidden=true>
+      <input type="text" id="ospitante"  name="ospitante" value="<%= utente.getNomeSquadra()%>" hidden=true>
+     <input type="text" id="numeroCampo"  name="numeroCampo" value="5" hidden=true>
+  <button type="submit" value="Submit" >Prenota come Ospitante</button>
+  <div>---------------</div>
+  </form>
+  <% } %>
 </div> 
     </div>
   </div>

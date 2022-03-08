@@ -38,13 +38,15 @@ public class GestionePrenotazione extends HttpServlet {
 			}
 		System.out.println();
 			}
+		String dataP =  request.getParameter("dataP");
+		session.setAttribute("dataP", dataP);
 		request.getRequestDispatcher("calendar_day.jsp").forward(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+			doGet(request, response);
 	}
 
 	private Partita[][]  getAllPartiteByDate(String data){
